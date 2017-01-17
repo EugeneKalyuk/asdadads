@@ -1,14 +1,19 @@
-const initionState = [];
+const initialState = [
+	{
+		id: 1234,
+		name: 'My Super Track'
+	}
+];
 
-export  default  function tracks(state = initionState, action) {
+export  default  function tracks(state = initialState, action) {
 	switch (action.type){
 		case 'ADD_TRACK':
 			return [
-				...state.tracks,
+				...state,
 				action.payload
 			];
-		case 'DELETE_TRACK':
-			return state;
+		case 'FETCH_TRACKS_SUCCESS':
+			return action.payload;
 		default: return state;
 	}
 }
